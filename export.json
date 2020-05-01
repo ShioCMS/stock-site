@@ -5,7 +5,7 @@
     "date" : "2020-04-03T15:00Z",
     "description" : "Stock",
     "url" : "Stock",
-    "postTypeLayout" : "{\n    \"FOLDER\": [{\n        \"format\": \"default\",\n        \"layout\": \"BOOTSTRAP_DEFAULT_CHANNEL_LAYOUT\"\n    }],\n    \"PT-ARTICLE\": [{\n        \"format\": \"default\",\n        \"layout\": \"BOOTSTRAP_ARTICLE_LAYOUT\"\n    }]\n}\n",
+    "postTypeLayout" : "{\n    \"FOLDER\": [{\n        \"format\": \"default\",\n        \"layout\": \"BOOTSTRAP_DEFAULT_CHANNEL_LAYOUT\"\n    }],\n    \"Article\": [{\n        \"format\": \"default\",\n        \"layout\": \"BOOTSTRAP_ARTICLE_LAYOUT\"\n    }]\n}\n",
     "searchablePostTypes" : null,
     "owner" : "admin",
     "furl" : "stock",
@@ -88,7 +88,7 @@
     "id" : "12eacfb5-5087-4f8b-9983-4f2f178279e4",
     "date" : "2018-07-03T13:04Z",
     "folder" : "5a2f94a0-9ff0-41d5-991d-de5f15c82099",
-    "postType" : "PT-FOLDER-INDEX",
+    "postType" : "FolderIndex",
     "fields" : {
       "DESCRIPTION" : "Folder Index",
       "PAGE-LAYOUT" : "61e91820-9b59-485c-8153-1d7b257a1834",
@@ -101,7 +101,7 @@
     "id" : "7a143884-d372-4cbe-a0f2-42626ffa01be",
     "date" : "2018-07-03T15:06Z",
     "folder" : "5a2f94a0-9ff0-41d5-991d-de5f15c82099",
-    "postType" : "PT-ARTICLE",
+    "postType" : "Article",
     "fields" : {
       "VIDEO" : null,
       "DESCRIPTION" : "This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.",
@@ -116,7 +116,7 @@
     "id" : "e90cf82b-eafe-4b13-a5da-392fa3474a6e",
     "date" : "2018-07-03T15:11Z",
     "folder" : "5a2f94a0-9ff0-41d5-991d-de5f15c82099",
-    "postType" : "PT-ARTICLE",
+    "postType" : "Article",
     "fields" : {
       "VIDEO" : null,
       "DESCRIPTION" : "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.",
@@ -131,7 +131,7 @@
     "id" : "8fd72855-4ba5-4f3b-b6a1-5825939cbeae",
     "date" : "2018-07-03T15:11Z",
     "folder" : "5a2f94a0-9ff0-41d5-991d-de5f15c82099",
-    "postType" : "PT-ARTICLE",
+    "postType" : "Article",
     "fields" : {
       "VIDEO" : null,
       "DESCRIPTION" : "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.",
@@ -146,7 +146,7 @@
     "id" : "61e91820-9b59-485c-8153-1d7b257a1834",
     "date" : "2018-07-03T14:52Z",
     "folder" : "1b6d3158-cd62-43f1-9e7a-82065fdc7a55",
-    "postType" : "PT-PAGE-LAYOUT",
+    "postType" : "PageLayout",
     "fields" : {
       "JAVASCRIPT" : "load('https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js');\nvar template = Handlebars.compile(html);\nvar html = template(shContent);\nhtml;",
       "DESCRIPTION" : "Bootstrap Default Channel Layout",
@@ -161,7 +161,7 @@
     "id" : "8fec0eb2-09af-4c5a-be05-8705c037d708",
     "date" : "2018-07-03T15:07Z",
     "folder" : "1b6d3158-cd62-43f1-9e7a-82065fdc7a55",
-    "postType" : "PT-PAGE-LAYOUT",
+    "postType" : "PageLayout",
     "fields" : {
       "JAVASCRIPT" : "load('https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js');\nvar template = Handlebars.compile(html);\nvar shObject = viglet.shiohara.shobject;\n\nvar objects ={\n    \"title\": shContent.system.title,\n    \"description\": shContent.DESCRIPTION,\n    \"text\": shContent.TEXT,\n    \"theme\": shContent.theme\n    \n}\nvar html = template(objects);\n\nhtml;",
       "DESCRIPTION" : "Bootstrap Article Layout",
@@ -176,7 +176,7 @@
     "id" : "3804e4c4-b09a-44ce-831c-caf521fe630a",
     "date" : "2018-07-06T13:13Z",
     "folder" : "c5148b25-fe69-41ba-aa23-954747db50d1",
-    "postType" : "PT-REGION",
+    "postType" : "Region",
     "fields" : {
       "JAVASCRIPT" : "load('https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js');\nHandlebars.registerHelper('file_url', function(object) {\n  return new Handlebars.SafeString(\n    \"/store/file_source/\" + shContent.site.system.title + object\n  );\n});\n\nvar template = Handlebars.compile(html);\nvar shObject = viglet.shiohara.shobject;\nvar navigation = shObject.navigation(shContent.site.system.title, true);\nvar forEach = Array.prototype.forEach;\nvar currentFolder = new String(shContent.system.id);\nvar folders = [];\n\nforEach.call(navigation, function (shFolder) {\n    var folderId = new String(shFolder.id);\n    var folderName = new String(shFolder.name);\n    \n    var isCurrentFolder = false;\n    \n    if (!currentFolder.localeCompare(folderId)) {\n        isCurrentFolder = true;\n    }\n\n    var folder = {\n        \"name\" : shFolder.name,\n        \"link\" : shObject.generateFolderLink(shFolder.id),\n        \"current\": isCurrentFolder\n    }\n\n    folders.push(folder);\n});\n\nvar object = {\n    \"siteName\": shContent.site.system.title,\n    \"folders\": folders    \n}\nvar html = template(object);\nhtml;",
       "DESCRIPTION" : "Bootstrap Navigation Region",
@@ -190,9 +190,9 @@
     "id" : "b8d6ff5e-f69c-41ee-b278-ee9e12c8c80a",
     "date" : "2018-07-03T14:48Z",
     "folder" : "c5148b25-fe69-41ba-aa23-954747db50d1",
-    "postType" : "PT-REGION",
+    "postType" : "Region",
     "fields" : {
-      "JAVASCRIPT" : "load('https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js');\nvar template = Handlebars.compile(html);\nvar shObject = viglet.shiohara.shobject;\n\nvar query  = shObject.query(shContent.system.id, \"PT-ARTICLE\"); // Others > Banner Home\n\nvar forEach = Array.prototype.forEach;\n\n\nvar posts = [];\n\nforEach.call(query, function (shPost) {\n    var post = {\n        \"title\": shPost.TITLE.strValue,\n        \"description\": shPost.DESCRIPTION.strValue,\n    //    \"image\": shObject.generatePostLink(shPost.IMAGE.strValue),\n        \"text\": shPost.TEXT.strValue,\n        \"link\": shObject.generateObjectLink(shPost.id.strValue)\n    }\n    posts.push(post);\n});\n\nvar objects = {\n    \"folder\": shContent,\n    \"posts\":  posts\n}\nvar html = template(objects);\nhtml",
+      "JAVASCRIPT" : "load('https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js');\nvar template = Handlebars.compile(html);\nvar shObject = viglet.shiohara.shobject;\n\nvar query  = shObject.query(shContent.system.id, \"Article\"); // Others > Banner Home\n\nvar forEach = Array.prototype.forEach;\n\n\nvar posts = [];\n\nforEach.call(query, function (shPost) {\n    var post = {\n        \"title\": shPost.TITLE.strValue,\n        \"description\": shPost.DESCRIPTION.strValue,\n    //    \"image\": shObject.generatePostLink(shPost.IMAGE.strValue),\n        \"text\": shPost.TEXT.strValue,\n        \"link\": shObject.generateObjectLink(shPost.id.strValue)\n    }\n    posts.push(post);\n});\n\nvar objects = {\n    \"folder\": shContent,\n    \"posts\":  posts\n}\nvar html = template(objects);\nhtml",
       "DESCRIPTION" : "Bootstrap Content List Region",
       "TITLE" : "BOOTSTRAP_CONTENT_LIST_REGION",
       "HTML" : "<div class=\"card-columns\">\n {{#each this.posts}}    \n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">{{this.title}}</h5>\n      <p class=\"card-text\">{{this.description}}</p>\n       <a href=\"{{this.link}}\" class=\"btn btn-primary\">Read More</a>\n    </div>\n  </div>\n  {{/each}}\n</div>"
@@ -204,7 +204,7 @@
     "id" : "8b3f157d-da12-43d1-a34a-ef272de641b5",
     "date" : "2018-07-03T13:03Z",
     "folder" : "cfa8a471-6c4b-4631-91fb-6402e812cbe9",
-    "postType" : "PT-THEME",
+    "postType" : "Theme",
     "fields" : {
       "JAVASCRIPT" : null,
       "CSS" : null,
@@ -218,7 +218,7 @@
     "id" : "5b7c03a6-a21b-4b09-9065-fe4515fe609f",
     "date" : "2018-07-03T13:18Z",
     "folder" : "8cd03887-a5b4-46ae-a81a-57fb4d925a9a",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "bootstrap-logo.jpg"
     },
@@ -229,7 +229,7 @@
     "id" : "01c37bb9-6ca1-414d-bb43-6e088d364138",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "88ZiTk8X1nc.jpg"
     },
@@ -240,7 +240,7 @@
     "id" : "4b468b7b-af58-420f-b457-5dc742a0ee1f",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "BTJAt-E-dA8.jpg"
     },
@@ -251,7 +251,7 @@
     "id" : "582ab218-0705-4913-8860-4736054e85e0",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "CobVcYS_Me0.jpg"
     },
@@ -262,7 +262,7 @@
     "id" : "8b12cb63-11ae-49a3-bf4f-3e899b8a50d7",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "1GTUDEPo-vA.jpg"
     },
@@ -273,7 +273,7 @@
     "id" : "fc6ddc3c-4ad8-4359-815f-5a4494e1c9a1",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "B-skOV2yvr4.jpg"
     },
@@ -284,7 +284,7 @@
     "id" : "eec933d5-fa32-4c17-991d-2b890b8138bc",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "0ejd26gqDYg.jpg"
     },
@@ -295,7 +295,7 @@
     "id" : "f934cc86-15f5-435c-b395-13801e5b9656",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "fQpzOJXijB4.jpg"
     },
@@ -306,7 +306,7 @@
     "id" : "4ff9fb61-edfe-4575-b4e0-a77e66e396e4",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "E5oWakkGt-8.jpg"
     },
@@ -317,7 +317,7 @@
     "id" : "62956cc8-9f38-4c87-8d3e-17d80d36f9e6",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "deu8yb96k1E.jpg"
     },
@@ -328,7 +328,7 @@
     "id" : "2ed3e084-61a7-470d-b647-d7054e325430",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "H4Cu_p_V6b8.jpg"
     },
@@ -339,7 +339,7 @@
     "id" : "9518f494-bb17-4837-87b7-459ba3cafd0f",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "fSVeMu9YNCk.jpg"
     },
@@ -350,7 +350,7 @@
     "id" : "438d1592-53fe-47b1-9e19-36d57b3903e7",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "iWJAmluemgA.jpg"
     },
@@ -361,7 +361,7 @@
     "id" : "915743a0-8a08-4674-8abd-9130e498682d",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "JjxQPvQM04I.jpg"
     },
@@ -372,7 +372,7 @@
     "id" : "01521d48-a4bb-45b9-a4a2-4dd110960881",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "NjpvdAEni4Q.jpg"
     },
@@ -383,7 +383,7 @@
     "id" : "1f4e3264-04ab-4915-811b-d6f75acf9d77",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "NbtkxmJJXSI.jpg"
     },
@@ -394,7 +394,7 @@
     "id" : "65547726-de19-44fd-a3dd-aa308b317e28",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "NnPg6hI4_Hk.jpg"
     },
@@ -405,7 +405,7 @@
     "id" : "b70723ec-b07c-4918-902f-3c181efb9a48",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "KmH8CHIK-rA.jpg"
     },
@@ -416,7 +416,7 @@
     "id" : "76bfc6c3-656a-4650-88c5-da1644c565b8",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "O4wvc0sos6A.jpg"
     },
@@ -427,7 +427,7 @@
     "id" : "5fd9beb2-d577-430f-b698-fb764cdc7ccc",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "QH2quvnoous.jpg"
     },
@@ -438,7 +438,7 @@
     "id" : "404af9e6-4bd6-461a-8f4b-df5e2f2d23e8",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "qayNP9ccw9E.jpg"
     },
@@ -449,7 +449,7 @@
     "id" : "b52e3023-f968-4f38-81f0-8f95609f699f",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "sJsXML9eI54.jpg"
     },
@@ -460,7 +460,7 @@
     "id" : "6927af2c-e24a-4380-ae73-b27113a29700",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "rt6Re3cjQ0g.jpg"
     },
@@ -471,7 +471,7 @@
     "id" : "3298afbc-afed-49dd-8a54-f8f648fb0378",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "u4bZQUeo2Q8.jpg"
     },
@@ -482,7 +482,7 @@
     "id" : "6a572903-984e-408c-8043-4b348539a7f7",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "uSmcIcmc4bY.jpg"
     },
@@ -493,7 +493,7 @@
     "id" : "49ef72ee-c9f3-4e4a-ab6a-2980dc460aba",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "WHqsnnzOj-c.jpg"
     },
@@ -504,7 +504,7 @@
     "id" : "3800dc82-e349-4d0b-82d4-8383883561ba",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "xm6esles7ds.jpg"
     },
@@ -515,7 +515,7 @@
     "id" : "cec7e98c-f30a-4b97-a7ae-4ea08f204a47",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "wOLzUYwlTH4.jpg"
     },
@@ -526,7 +526,7 @@
     "id" : "eef64633-613f-4a86-b1cd-e76cc2e045e5",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "XhSBwuvNoD4.jpg"
     },
@@ -537,7 +537,7 @@
     "id" : "dfd8b99a-b9da-4429-b079-831ecbe3ed57",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "ypyaaEf2ntM.jpg"
     },
@@ -548,7 +548,7 @@
     "id" : "9cfaf3a7-77c7-4210-8693-bdd13b317d1d",
     "date" : "2020-04-03T15:10Z",
     "folder" : "39cef32e-e754-4f1a-991c-c45a1ecebe7c",
-    "postType" : "PT-FILE",
+    "postType" : "File",
     "fields" : {
       "FILE" : "ywOl6dDEoyY.jpg"
     },
@@ -559,7 +559,7 @@
   "postTypes" : [ {
     "id" : "61a2d491-0933-418c-b1cb-aae042d5e089",
     "date" : "2018-06-14T13:53Z",
-    "name" : "PT-FILE",
+    "name" : "File",
     "label" : "File",
     "description" : "File Post Type",
     "fields" : {
@@ -580,7 +580,7 @@
   }, {
     "id" : "301a6645-a3b2-4644-b7c6-ec6554aef8d1",
     "date" : "2019-07-11T01:27Z",
-    "name" : "PT-REGION",
+    "name" : "Region",
     "label" : "Region",
     "description" : "Region Post Type",
     "fields" : {
@@ -656,7 +656,7 @@
   }, {
     "id" : "2ec0d911-e64f-41e5-a5d8-e0dba41a5b3b",
     "date" : "2018-06-14T13:53Z",
-    "name" : "PT-THEME",
+    "name" : "Theme",
     "label" : "Theme",
     "description" : "Theme Post Type",
     "fields" : {
@@ -710,7 +710,7 @@
   }, {
     "id" : "10edbb4c-b2fa-481b-be8c-404e44050167",
     "date" : "2019-07-11T00:31Z",
-    "name" : "PT-FOLDER-INDEX",
+    "name" : "FolderIndex",
     "label" : "Folder Index",
     "description" : "Folder Index Post Type",
     "fields" : {
@@ -843,7 +843,7 @@
   }, {
     "id" : "3d349925-3509-463d-ab72-b0006d0b463e",
     "date" : "2018-06-14T13:53Z",
-    "name" : "PT-PAGE-LAYOUT",
+    "name" : "PageLayout",
     "label" : "Page Layout",
     "description" : "Page Layout Post Type",
     "fields" : {
@@ -908,7 +908,7 @@
   }, {
     "id" : "cd710f35-e838-41e2-943c-1c93f0543ebe",
     "date" : "2019-07-11T01:25Z",
-    "name" : "PT-ARTICLE",
+    "name" : "Article",
     "label" : "Article",
     "description" : "Article Post Type",
     "fields" : {
